@@ -23,6 +23,7 @@ class Model:
 
         for i in range(1, counters[0]):
             img = cv.imread(f'1/frame{i}.jpg')[:, :, 0]
+            # different devices for different images sizes
             img = img.reshape(16950)
             img_list = np.append(img_list, [img])
             class_list = np.append(class_list, 1)
