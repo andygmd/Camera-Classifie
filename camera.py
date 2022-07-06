@@ -1,12 +1,3 @@
-'''
-Camera Classifier v0.1 Alpha
-Copyright (c) NeuralNine
-
-Instagram: @neuralnine
-YouTube: NeuralNine
-Website: www.neuralnine.com
-'''
-
 import cv2 as cv
 
 class Camera:

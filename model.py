@@ -1,12 +1,3 @@
-'''
-Camera Classifier v0.1 Alpha
-Copyright (c) NeuralNine
-
-Instagram: @neuralnine
-YouTube: NeuralNine
-Website: www.neuralnine.com
-'''
-
 from sklearn.svm import LinearSVC
 import numpy as np
 import cv2 as cv
@@ -24,7 +15,7 @@ class Model:
         for i in range(1, counters[0]):
             img = cv.imread(f'1/frame{i}.jpg')[:, :, 0]
             # different devices for different images sizes
-            img = img.reshape(16950)
+            img = img.reshape((img.shape[0], 1))
             img_list = np.append(img_list, [img])
             class_list = np.append(class_list, 1)
 
@@ -34,7 +25,7 @@ class Model:
             img_list = np.append(img_list, [img])
             class_list = np.append(class_list, 2)
 
-        img_list = img_list.reshape(counters[0] - 1 + counters[1] - 1, 16950)
+        img_list = img_list.reshape(counters[0] - 1 + counters[1] - 1, (img.shape[0], 1))
         self.model.fit(img_list, class_list)
         print("Model successfully trained!")
 
@@ -46,7 +37,7 @@ class Model:
         img.save("frame.jpg")
 
         img = cv.imread('frame.jpg')[:, :, 0]
-        img = img.reshape(16950)
+        img = img.reshape((img.shape[0], 1))
         prediction = self.model.predict([img])
 
         return prediction[0]

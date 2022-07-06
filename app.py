@@ -1,12 +1,3 @@
-'''
-Camera Classifier v0.1 Alpha
-Copyright (c) NeuralNine
-
-Instagram: @neuralnine
-YouTube: NeuralNine
-Website: www.neuralnine.com
-'''
-
 import tkinter as tk
 from tkinter import simpledialog
 import cv2 as cv
